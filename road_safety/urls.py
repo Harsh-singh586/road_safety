@@ -18,9 +18,10 @@ from django.conf.urls import url
 from api import views
 from django.urls import path
 urlpatterns = [
-    url('admin/', admin.site.urls),
-    url('add/',views.add),
-    url('ping',views.status_check.as_view()),
+    url(r'^admin/', admin.site.urls),
+    url(r'^add/',views.add),
+    url(r'^$',views.index),
+    url(r'^ping',views.status_check.as_view()),
     path('<str:date_time>/<str:event>', views.alldata.as_view()),
     
 ]
