@@ -13,6 +13,10 @@ from django.contrib import messages
 class alldata(APIView):
 
      def get(self, request, event, date_time):
+          ''' param Event, Date_time
+              Event is URL param
+              Date_time is Date/time combination
+              returns JSON response '''
            now = datetime.datetime.now()
            now_date = str(now.date())
            now_time = str(now.time())[:5]
@@ -32,12 +36,14 @@ class alldata(APIView):
                     return Response(status = 404)
 
 class status_check(APIView):
-
+      
      def get(self, request):
+              ''' if server is alive Returns Ok status '''
               return Response({'status' : 'OK'})
            
 
 def add(request):
+       ''' used to add data to the Database '''
        if request.method == 'POST':
              url = request.POST['event']
              dt = request.POST['date']
@@ -54,4 +60,6 @@ def add(request):
                  messages.info(request,'Added')
                  return redirect('/add')
        return render(request, "add.html")
-            
+def index(request):
+     '''home page view'''
+      return render(request, "index.html")       
