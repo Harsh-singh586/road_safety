@@ -13,7 +13,7 @@ from django.contrib import messages
 class alldata(APIView):
 
      def get(self, request, event, date_time):
-          ''' param Event, Date_time
+           ''' param Event, Date_time
               Event is URL param
               Date_time is Date/time combination
               returns JSON response '''
@@ -61,5 +61,5 @@ def add(request):
                  return redirect('/add')
        return render(request, "add.html")
 def index(request):
-     '''home page view'''
+      '''home page view'''
       return render(request, "index.html")       
