@@ -1,0 +1,29 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<title>Add Data </title>
+<body>
+<div class = 'jumbotron'>
+      <form method = 'post'>
+         {% csrf_token %}
+         <div class="form-group">
+           <label>Event Name</label>
+           <input type="text" class="form-control" name = 'event'>
+         </div>
+         <div class = 'form-group'>
+           <label>Date</label>
+           <input type="date" class="form-control" name = 'date'>
+         </div>
+         <div class = 'form-group'>
+           <label>Date</label>
+           <input type="time" class="form-control" name = 'time'>
+         </div>
+         <button type="submit" class="btn btn-primary">Submit</button>
+         <div style="color:red;">
+         {% for i in messages %}
+                    <center><h3>{{ i }}</h3></center>
+         {% endfor %}
+</div>
+</body>
+</html>
